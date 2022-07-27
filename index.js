@@ -21,6 +21,10 @@ const gtwServiceProxy = httpProxy(`${process.env.GTW_API}`, options);
 app.use('/checkpoint',checkoutServiceProxy);
 app.get('/gtw', gtwServiceProxy);
 
+app.get('/server', (request, response) => { 
+    return response.json({message: 'server started!!!'}) 
+});
+
 console.log('asfasf',process.env.DOCKER_PORT);
 
 app.listen(process.env.DOCKER_PORT, () => {
